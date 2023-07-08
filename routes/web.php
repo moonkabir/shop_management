@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShopSettingsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('admin/dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', function () { return view('admin/dashboard'); })->middleware(['auth'])->name('dashboard');
+Route::get('/shop-settings', [ShopSettingsController::class, 'index'])->middleware(['auth'])->name('ShopSettings');
+Route::post('/shop-settings/create', [ShopSettingsController::class, 'create'])->middleware(['auth'])->name('ShopSettingsCreate');
+
 
 require __DIR__.'/auth.php';

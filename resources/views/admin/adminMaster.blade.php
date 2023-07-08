@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="{{ asset('/') }}admin/assets/images/favicon.png" />
 </head>
 <body>
+    <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
     <div class="container-scroller">
         <div class="horizontal-menu">
             <nav class="navbar top-navbar col-lg-12 col-12 p-0">
@@ -38,7 +39,9 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown d-lg-flex d-none">
-                                <button type="button" class="btn btn-inverse-primary btn-sm">Settings</button>
+                                <a class="btn btn-inverse-primary btn-sm" href="{{ route('ShopSettings') }}">
+                                    Settings
+                                </a>
                             </li>
                         </ul>
                         <ul class="navbar-nav navbar-nav-right">
@@ -155,12 +158,8 @@
                     <div class="footer-wrap">
                         <div class="d-sm-flex justify-content-center justify-content-sm-between">
                             <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">
-                                Copyright © <a href="https://www.bootstrapdash.com/" target="_blank">bootstrapdash.com</a>2021
+                                Copyright © <a href="{{ url('/') }}" target="_blank"> company name </a> <?php echo date('Y');?>
                             </span>
-                            {{-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
-                                Only the best <a href="https://www.bootstrapdash.com/" target="_blank"> Bootstrap dashboard </a>
-                                templates
-                            </span> --}}
                         </div>
                     </div>
                 </footer>
@@ -176,5 +175,9 @@
     <script src="{{asset('/')}}admin/assets/vendors/justgage/justgage.js"></script>
     <script src="{{asset('/')}}admin/assets/js/jquery.cookie.js" type="text/javascript"></script>
     <script src="{{asset('/')}}admin/assets/js/dashboard.js"></script>
+    @yield('extraScripts')
+    <script>
+        var _token = $("#token").val();
+    </script>
 </body>
 </html>
