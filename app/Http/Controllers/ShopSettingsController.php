@@ -14,7 +14,8 @@ class ShopSettingsController extends Controller
      */
     public function index()
     {
-        return view('admin/shop_settings/index');
+        $ShopSettings = ShopSettings::all();
+        return view('admin/shop_settings/index', compact('ShopSettings'));
     }
 
     /**
