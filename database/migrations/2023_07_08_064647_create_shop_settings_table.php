@@ -15,8 +15,11 @@ class CreateShopSettingsTable extends Migration
     {
         Schema::create('shop_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('value');
+            $table->string('shop_name');
+            $table->string('address');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('logo');
             $table->timestamps();
         });
     }
