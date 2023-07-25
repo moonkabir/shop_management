@@ -17,7 +17,7 @@
                 <div class="container-fluid">
                     <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
                         <ul class="navbar-nav navbar-nav-left">
-                            <li class="nav-item dropdown  d-lg-flex d-none">
+                            {{-- <li class="nav-item dropdown  d-lg-flex d-none">
                                 <button type="button" class="btn btn-inverse-primary btn-sm">Product </button>
                             </li>
                             <li class="nav-item dropdown d-lg-flex d-none">
@@ -37,7 +37,7 @@
                                         Exel
                                     </a>
                                 </div>
-                            </li>
+                            </li> --}}
                             <li class="nav-item dropdown d-lg-flex d-none">
                                 <a class="btn btn-inverse-primary btn-sm" href="{{ route('ShopSettings') }}">
                                     Settings
@@ -83,6 +83,20 @@
                                 <span class="menu-title">Dashboard</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="mdi mdi-cube-outline menu-icon"></i>
+                                <span class="menu-title">Product</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="submenu">
+                                <ul>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('ProductCreate') }}">Add Product</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('ProductManage') }}">Manage Product</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
                         {{-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="mdi mdi-cube-outline menu-icon"></i>
