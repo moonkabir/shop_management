@@ -6,7 +6,7 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Shop Settings Table</h4>
+                <h4 class="card-title">Product Settings Table</h4>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -41,13 +41,12 @@
                                     <td>{{$product->price}}</td>
                                     <td>{{$product->is_active}}</td>
                                     <td>{{$product->created_at}}</td>
-                                    <td>
-
-                                        <a href="{{route('ProductEdit',$product->id)}}"><i class="mdi mdi-tooltip-edit"></i></a> |
+                                    <td style="display: flex">
+                                        <a href="{{route('ProductEdit',$product->id)}}" style="padding: 1px 6px"><i class="mdi mdi-tooltip-edit"></i></a> |
                                         <form action="{{route('ProductDelete')}}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id" value="{{$product->id}}">
-                                            <button type="submit"><i class="mdi mdi-delete"></i></button>
+                                            <button type="submit" style="border: 0;"><i class="mdi mdi-delete"></i></button>
                                         </form>
                                     </td>
                                 </tr>
