@@ -9,7 +9,7 @@
             padding: 0.875rem 1.375rem !important;
         }
     </style>
-    <div class="col-md-6 grid-margin stretch-card">
+    <div class="col-md-8 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Update Product</h4>

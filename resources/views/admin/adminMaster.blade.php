@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('/') }}admin/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="{{ asset('/') }}admin/assets/vendors/base/vendor.bundle.base.css">
     <link rel="stylesheet" href="{{ asset('/') }}admin/assets/css/style.css">
+    <link rel="stylesheet" href="{{ asset('/') }}admin/css/admin-style.css">
     <link rel="shortcut icon" href="{{ asset('/') }}admin/assets/images/favicon.png" />
 </head>
 <body>
@@ -84,7 +85,22 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a class="nav-link">
+                                <i class="mdi mdi-settings menu-icon"></i>
+                                <span class="menu-title">Settings</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="submenu">
+                                <ul>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('CategoryCreate') }}">Add Category</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('CategoryManage') }}">Manage Category</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('SubCategoryCreate') }}">Add SubCategory</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('SubCategoryManage') }}">Manage SubCategory</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">
                                 <i class="mdi mdi-cube-outline menu-icon"></i>
                                 <span class="menu-title">Product</span>
                                 <i class="menu-arrow"></i>
