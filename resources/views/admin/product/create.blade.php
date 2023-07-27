@@ -9,7 +9,7 @@
             padding: 0.875rem 1.375rem !important;
         }
     </style>
-    <div class="col-md-6 grid-margin stretch-card">
+    <div class="col-md-8 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Product</h4>
@@ -35,35 +35,41 @@
                     </div>
                     <div class="row form-group">
                         <label for="category" class="col-sm-3 col-form-label">Category</label>
-                        <div class="col-sm-9">
-                            <select class="form-control" id="category" name="category" value="{{old("category")}}" required>
-                                <option>Select Category</option>
-                                <option value="1">Alabama</option>
-                                <option value="2">Wyoming</option>
-                                <option value="3">America</option>
-                                <option value="4">Canada</option>
-                                <option value="5">Russia</option>
-                            </select>
-                            @error('category')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
+                        @php $categories = App\Models\Category::all(); @endphp
+                        @if(count($categories)>0)
+                            <div class="col-sm-9">
+                                <select class="form-control" id="category" name="category" value="{{old("category")}}" required>
+                                    <option>Select Category</option>
+                                    @foreach ( $categories as $categorie )
+                                        <option value="{{$categorie->id}}">{{$categorie->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('category')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        @else
+                            No Category found. Please add a category.
+                        @endif
                     </div>
                     <div class="row form-group">
                         <label for="subcategory" class="col-sm-3 col-form-label">Sub Category</label>
-                        <div class="col-sm-9">
-                            <select class="form-control" id="subcategory" name="subcategory" value="{{old("subcategory")}}">
-                                <option>Select Sub Category</option>
-                                <option value="1">Alabama</option>
-                                <option value="2">Wyoming</option>
-                                <option value="3">America</option>
-                                <option value="4">Canada</option>
-                                <option value="5">Russia</option>
-                            </select>
-                            @error('subcategory')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
+                        @php $subcategories = App\Models\SubCategory::all(); @endphp
+                        @if(count($subcategories)>0)
+                            <div class="col-sm-9">
+                                <select class="form-control" id="subcategory" name="subcategory" value="{{old("subcategory")}}">
+                                    <option>Select Sub Category</option>
+                                    @foreach ( $categories as $categorie )
+                                        <option value="{{$subcategories->id}}">{{$subcategories->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('subcategory')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        @else
+                            No Sub Category found. Please add a sub category.
+                        @endif
                     </div>
                     <div class="row form-group">
                         <label for="brand" class="col-sm-3 col-form-label">Brand</label>
