@@ -49,7 +49,7 @@
                                 @enderror
                             </div>
                         @else
-                            No Category found. Please add a category.
+                            No Category found. Please add a Category.
                         @endif
                     </div>
                     <div class="row form-group">
@@ -59,8 +59,8 @@
                             <div class="col-sm-9">
                                 <select class="form-control" id="subcategory" name="subcategory" value="{{old("subcategory")}}">
                                     <option>Select Sub Category</option>
-                                    @foreach ( $categories as $categorie )
-                                        <option value="{{$subcategories->id}}">{{$subcategories->name}}</option>
+                                    @foreach ( $subcategories as $subcategorie )
+                                        <option value="{{$subcategorie->id}}">{{$subcategorie->name}}</option>
                                     @endforeach
                                 </select>
                                 @error('subcategory')
@@ -68,40 +68,49 @@
                                 @enderror
                             </div>
                         @else
-                            No Sub Category found. Please add a sub category.
+                            No Sub Category found. Please add a Sub Category.
                         @endif
                     </div>
                     <div class="row form-group">
                         <label for="brand" class="col-sm-3 col-form-label">Brand</label>
-                        <div class="col-sm-9">
-                            <select class="form-control" id="brand" name="brand" value="{{old("brand")}}" required>
-                                <option>Select Brand</option>
-                                <option value="1">Alabama</option>
-                                <option value="2">Wyoming</option>
-                                <option value="3">America</option>
-                                <option value="4">Canada</option>
-                                <option value="5">Russia</option>
-                            </select>
-                            @error('brand')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
+                        @php $brands = App\Models\Brand::all(); @endphp
+                        @if(count($brands)>0)
+                            <div class="col-sm-9">
+                                <select class="form-control" id="brand" name="brand" value="{{old("brand")}}" required>
+                                    <option>Select Brand</option>
+                                    @foreach ( $brands as $brand )
+                                        <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('brand')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        @else
+                            No Brand found. Please add a Brand.
+                        @endif
                     </div>
                     <div class="row form-group">
                         <label for="unit" class="col-sm-3 col-form-label">Unit</label>
-                        <div class="col-sm-9">
-                            <select class="form-control" id="unit" name="unit" value="{{old("unit")}}" required>
-                                <option>Select Unit</option>
-                                <option value="1">Alabama</option>
-                                <option value="2">Wyoming</option>
-                                <option value="3">America</option>
-                                <option value="4">Canada</option>
-                                <option value="5">Russia</option>
-                            </select>
-                            @error('unit')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
+                        @php
+                            $Lookup = new App\Models\Lookup;
+                            $units = $Lookup->unit();
+                        @endphp
+                        @if(count($units)>0)
+                            <div class="col-sm-9">
+                                <select class="form-control" id="unit" name="unit" value="{{old("unit")}}" required>
+                                    <option>Select Unit</option>
+                                    @foreach ( $units as $unit )
+                                        <option value="{{$unit->value}}">{{$unit->title}}</option>
+                                    @endforeach
+                                </select>
+                                @error('unit')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        @else
+                            No Unit found. Please add a Unit.
+                        @endif
                     </div>
                     <div class="form-group row">
                         <label for="min_qty" class="col-sm-3 col-form-label">Minimum Quantity</label>
@@ -112,21 +121,40 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Status</label>
-                        <div class="col-sm-4">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="is_active" id="is_active1" value="1" checked> Active </label>
+
+
+
+
+
+
+                    <div class="row form-group">
+                        <label for="is_active" class="col-sm-3 col-form-label">Status</label>
+                        @php
+                            $Lookup = new App\Models\Lookup;
+                            $statusData = $Lookup->status();
+                        @endphp
+                        @if(count($statusData)>0)
+                            <div class="col-sm-9">
+                                <select class="form-control" id="is_active" name="is_active" value="{{old("is_active")}}" required>
+                                    <option>Select Status</option>
+                                    @foreach ( $statusData as $status )
+                                        <option value="{{$status->value}}">{{$status->title}}</option>
+                                    @endforeach
+                                </select>
+                                @error('is_active')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
-                        </div>
-                        <div class="col-sm-5">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="is_active" id="is_active2" value="2"> Inactive </label>
-                            </div>
-                        </div>
+                        @else
+                            No Status found. Please add a Status.
+                        @endif
                     </div>
+
+
+
+
+
+
                     <button type="submit" class="btn btn-primary me-2">Create</button>
                 </form>
             </div>
