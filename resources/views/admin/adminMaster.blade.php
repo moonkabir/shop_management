@@ -86,6 +86,19 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link">
+                                <i class="mdi mdi-label-outline"></i>
+                                <span class="menu-title">LookUp</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="submenu">
+                                <ul>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('LookupCreate') }}">Add LookUp</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('LookupManage') }}">Manage LookUp</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">
                                 <i class="mdi mdi-settings menu-icon"></i>
                                 <span class="menu-title">Settings</span>
                                 <i class="menu-arrow"></i>
@@ -96,6 +109,8 @@
                                     <li class="nav-item"><a class="nav-link" href="{{ route('CategoryManage') }}">Manage Category</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{{ route('SubCategoryCreate') }}">Add SubCategory</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{{ route('SubCategoryManage') }}">Manage SubCategory</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('BrandCreate') }}">Add Brand</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('BrandManage') }}">Manage Brand</a></li>
                                 </ul>
                             </div>
                         </li>
