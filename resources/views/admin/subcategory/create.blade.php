@@ -13,7 +13,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">SubCategory</h4>
-                <form class="forms-sample" id="setting_form" action="{{route('CategoryStore')}}" method="POST" enctype="multipart/form-data">
+                <form class="forms-sample" id="setting_form" action="{{route('SubCategoryStore')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row form-group">
                         <label for="name" class="col-sm-3 col-form-label">Name</label>

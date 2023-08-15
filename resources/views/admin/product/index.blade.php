@@ -34,12 +34,13 @@
                                     <td>{{$product->product_id}}</td>
                                     <td>{{$product->name}}</td>
                                     <td>{{$product->code}}</td>
-                                    <td>{{$product->category}}</td>
-                                    <td>{{$product->subcategory}}</td>
-                                    <td>{{$product->brand}}</td>
-                                    <td>{{$product->unit}}</td>
+
+                                    <td>{{ App\Models\Category::find($product->category)->name;}}</td>
+                                    <td>{{ App\Models\SubCategory::find($product->subcategory)->name;}}</td>
+                                    <td>{{ App\Models\Brand::find($product->brand)->name;}}</td>
+                                    <td>{{ App\Models\Lookup::where(['name'=> 'unit','value'=>$product->unit])->value('title') }}</td>
                                     <td>{{$product->price}}</td>
-                                    <td>{{$product->is_active}}</td>
+                                    <td>{{ App\Models\Lookup::where(['name'=> 'status','value'=>$product->is_active])->value('title') }}</td>
                                     <td>{{$product->created_at}}</td>
                                     <td style="display: flex">
                                         <a href="{{route('ProductEdit',$product->id)}}" style="padding: 1px 6px"><i class="mdi mdi-tooltip-edit"></i></a> |
