@@ -5,6 +5,8 @@ use App\Http\Controllers\ShopSettingsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\LookupController;
 
 
 /*
@@ -49,6 +51,22 @@ Route::post('/subcategory/store', [SubCategoryController::class, 'store'])->midd
 Route::get('/subcategory/edit/{id}', [SubCategoryController::class, 'edit'])->middleware(['auth'])->name('SubCategoryEdit');
 Route::post('/subcategory/update', [SubCategoryController::class, 'update'])->middleware(['auth'])->name('SubCategoryUpdate');
 Route::post('/subcategory/delete/', [SubCategoryController::class, 'delete'])->middleware(['auth'])->name('SubCategoryDelete');
+
+//=========================admin panel Brand settings routes======================================
+Route::get('/brand/manage', [BrandController::class, 'manage'])->middleware(['auth'])->name('BrandManage');
+Route::get('/brand/create', [BrandController::class, 'create'])->middleware(['auth'])->name('BrandCreate');
+Route::post('/brand/store', [BrandController::class, 'store'])->middleware(['auth'])->name('BrandStore');
+Route::get('/brand/edit/{id}', [BrandController::class, 'edit'])->middleware(['auth'])->name('BrandEdit');
+Route::post('/brand/update', [BrandController::class, 'update'])->middleware(['auth'])->name('BrandUpdate');
+Route::post('/brand/delete/', [BrandController::class, 'delete'])->middleware(['auth'])->name('BrandDelete');
+
+//=========================admin panel LookUp settings routes======================================
+Route::get('/lookup/manage', [LookupController::class, 'manage'])->middleware(['auth'])->name('LookupManage');
+Route::get('/lookup/create', [LookupController::class, 'create'])->middleware(['auth'])->name('LookupCreate');
+Route::post('/lookup/store', [LookupController::class, 'store'])->middleware(['auth'])->name('LookupStore');
+Route::get('/lookup/edit/{id}', [LookupController::class, 'edit'])->middleware(['auth'])->name('LookupEdit');
+Route::post('/lookup/update', [LookupController::class, 'update'])->middleware(['auth'])->name('LookupUpdate');
+Route::post('/lookup/delete/', [LookupController::class, 'delete'])->middleware(['auth'])->name('LookupDelete');
 
 
 require __DIR__.'/auth.php';
