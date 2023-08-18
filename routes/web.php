@@ -20,9 +20,9 @@ use App\Http\Controllers\LookupController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () { return view('admin/dashboard'); })->middleware(['auth'])->name('dashboard');
 Route::get('/shop-settings', [ShopSettingsController::class, 'index'])->middleware(['auth'])->name('ShopSettings');
@@ -68,5 +68,12 @@ Route::get('/lookup/edit/{id}', [LookupController::class, 'edit'])->middleware([
 Route::post('/lookup/update', [LookupController::class, 'update'])->middleware(['auth'])->name('LookupUpdate');
 Route::post('/lookup/delete/', [LookupController::class, 'delete'])->middleware(['auth'])->name('LookupDelete');
 
+//=========================admin Employee settings routes======================================
+Route::get('/lookup/manage', [LookupController::class, 'manage'])->middleware(['auth'])->name('LookupManage');
+Route::get('/lookup/create', [LookupController::class, 'create'])->middleware(['auth'])->name('LookupCreate');
+Route::post('/lookup/store', [LookupController::class, 'store'])->middleware(['auth'])->name('LookupStore');
+Route::get('/lookup/edit/{id}', [LookupController::class, 'edit'])->middleware(['auth'])->name('LookupEdit');
+Route::post('/lookup/update', [LookupController::class, 'update'])->middleware(['auth'])->name('LookupUpdate');
+Route::post('/lookup/delete/', [LookupController::class, 'delete'])->middleware(['auth'])->name('LookupDelete');
 
 require __DIR__.'/auth.php';
