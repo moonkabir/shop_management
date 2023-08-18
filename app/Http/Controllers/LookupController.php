@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lookup;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class LookupController extends Controller
 {
@@ -36,12 +37,26 @@ class LookupController extends Controller
      */
     public function store(Request $request)
     {
+        $name = $request->name;
+        $value = $request->value;
+        $messages = [
+            'name.unique' => 'Given Name and Value are not unique',
+            'title.required' => 'Title must be given',
+        ];
         $request->validate([
-            'name' => ['required'],
-        ]);
+            'name' => [
+                'required',
+                Rule::unique('lookups')->where(function ($query) use($name,$value) {
+                return $query->where('name', $name)->where('value', $value);
+                })
+            ],
+            'title' => ['required'],
+        ],
+            $messages
+        );
         $lookup = new Lookup();
-        $lookup->name = $request->name;
-        $lookup->value = $request->value;
+        $lookup->name = $name;
+        $lookup->value = $value;
         $lookup->title = $request->title;
         $lookup->save();
 
@@ -69,13 +84,21 @@ class LookupController extends Controller
      */
     public function update(Request $request)
     {
+        $name = $request->name;
+        $value = $request->value;
+        $id = $request->id;
         $request->validate([
-            'name' => ['required'],
+            'name' => [
+                'required',
+                 Rule::unique('lookups')->where(function ($query) use($name,$value) {
+                   return $query->where('name', $name)->where('value', $value);
+                 })->ignore($id)
+            ],
         ]);
 
-        $lookup = Lookup::find($request->id);
-        $lookup->name = $request->name;
-        $lookup->value = $request->value;
+        $lookup = Lookup::find($id);
+        $lookup->name = $name;
+        $lookup->value = $value;
         $lookup->title = $request->title;
         $lookup->save();
 
