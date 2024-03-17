@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\LookupController;
 
 
@@ -59,6 +60,14 @@ Route::post('/brand/store', [BrandController::class, 'store'])->middleware(['aut
 Route::get('/brand/edit/{id}', [BrandController::class, 'edit'])->middleware(['auth'])->name('BrandEdit');
 Route::post('/brand/update', [BrandController::class, 'update'])->middleware(['auth'])->name('BrandUpdate');
 Route::post('/brand/delete/', [BrandController::class, 'delete'])->middleware(['auth'])->name('BrandDelete');
+
+//=========================admin panel Supplier settings routes======================================
+Route::get('/supplier/manage', [SupplierController::class, 'manage'])->middleware(['auth'])->name('SupplierManage');
+Route::get('/supplier/create', [SupplierController::class, 'create'])->middleware(['auth'])->name('SupplierCreate');
+Route::post('/supplier/store', [SupplierController::class, 'store'])->middleware(['auth'])->name('SupplierStore');
+Route::get('/supplier/edit/{id}', [SupplierController::class, 'edit'])->middleware(['auth'])->name('SupplierEdit');
+Route::post('/supplier/update', [SupplierController::class, 'update'])->middleware(['auth'])->name('SupplierUpdate');
+Route::post('/supplier/delete/', [SupplierController::class, 'delete'])->middleware(['auth'])->name('SupplierDelete');
 
 //=========================admin panel LookUp settings routes======================================
 Route::get('/lookup/manage', [LookupController::class, 'manage'])->middleware(['auth'])->name('LookupManage');
