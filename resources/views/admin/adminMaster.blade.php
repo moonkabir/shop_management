@@ -111,6 +111,8 @@
                                     <li class="nav-item"><a class="nav-link" href="{{ route('SubCategoryManage') }}">Manage SubCategory</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{{ route('BrandCreate') }}">Add Brand</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{{ route('BrandManage') }}">Manage Brand</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('SupplierCreate') }}">Add Supplier</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('SupplierManage') }}">Manage Supplier</a></li>
                                 </ul>
                             </div>
                         </li>
