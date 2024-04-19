@@ -6,6 +6,23 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
+                <form method="POST" action="{{ route('CustomerManageSearch') }}">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="titlesearch" class="form-control" placeholder="Enter Title For Search" value="{{ old('titlesearch') }}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <button class="btn btn-success">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-body">
                 <h4 class="card-title">Customer Settings Table</h4>
                 <div class="table-responsive">
                     <table class="table table-striped">

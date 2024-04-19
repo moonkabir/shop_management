@@ -72,6 +72,7 @@ Route::post('/supplier/delete/', [SupplierController::class, 'delete'])->middlew
 
 //=========================admin panel Customer settings routes======================================
 Route::get('/customer/manage', [CustomerController::class, 'manage'])->middleware(['auth'])->name('CustomerManage');
+Route::post('/customer/manage', [CustomerController::class, 'manage'])->middleware(['auth'])->name('CustomerManageSearch');
 Route::get('/customer/create', [CustomerController::class, 'create'])->middleware(['auth'])->name('CustomerCreate');
 Route::post('/customer/store', [CustomerController::class, 'store'])->middleware(['auth'])->name('CustomerStore');
 Route::get('/customer/edit/{id}', [CustomerController::class, 'edit'])->middleware(['auth'])->name('CustomerEdit');
