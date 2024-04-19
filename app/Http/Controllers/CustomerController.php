@@ -12,9 +12,17 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function manage()
+    public function manage(Request $request)
     {
-        $customers = Customer::all();
+        // $customers = Customer::all();
+        // return view('admin/customer/index', compact('customers'));
+
+
+        if($request->has('titlesearch')){
+            $customers = Customer::search($request->titlesearch)->paginate(6);
+        }else{
+            $customers = Customer::paginate(6);
+        }
         return view('admin/customer/index', compact('customers'));
     }
 
