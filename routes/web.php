@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LookupController;
 
 
@@ -68,6 +69,14 @@ Route::post('/supplier/store', [SupplierController::class, 'store'])->middleware
 Route::get('/supplier/edit/{id}', [SupplierController::class, 'edit'])->middleware(['auth'])->name('SupplierEdit');
 Route::post('/supplier/update', [SupplierController::class, 'update'])->middleware(['auth'])->name('SupplierUpdate');
 Route::post('/supplier/delete/', [SupplierController::class, 'delete'])->middleware(['auth'])->name('SupplierDelete');
+
+//=========================admin panel Customer settings routes======================================
+Route::get('/customer/manage', [CustomerController::class, 'manage'])->middleware(['auth'])->name('CustomerManage');
+Route::get('/customer/create', [CustomerController::class, 'create'])->middleware(['auth'])->name('CustomerCreate');
+Route::post('/customer/store', [CustomerController::class, 'store'])->middleware(['auth'])->name('CustomerStore');
+Route::get('/customer/edit/{id}', [CustomerController::class, 'edit'])->middleware(['auth'])->name('CustomerEdit');
+Route::post('/customer/update', [CustomerController::class, 'update'])->middleware(['auth'])->name('CustomerUpdate');
+Route::post('/customer/delete/', [CustomerController::class, 'delete'])->middleware(['auth'])->name('CustomerDelete');
 
 //=========================admin panel LookUp settings routes======================================
 Route::get('/lookup/manage', [LookupController::class, 'manage'])->middleware(['auth'])->name('LookupManage');
