@@ -9,6 +9,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LookupController;
+use App\Http\Controllers\SalesOrderController;
 
 
 /*
@@ -88,11 +89,21 @@ Route::post('/lookup/update', [LookupController::class, 'update'])->middleware([
 Route::post('/lookup/delete/', [LookupController::class, 'delete'])->middleware(['auth'])->name('LookupDelete');
 
 //=========================admin Employee settings routes======================================
-Route::get('/lookup/manage', [LookupController::class, 'manage'])->middleware(['auth'])->name('LookupManage');
-Route::get('/lookup/create', [LookupController::class, 'create'])->middleware(['auth'])->name('LookupCreate');
-Route::post('/lookup/store', [LookupController::class, 'store'])->middleware(['auth'])->name('LookupStore');
-Route::get('/lookup/edit/{id}', [LookupController::class, 'edit'])->middleware(['auth'])->name('LookupEdit');
-Route::post('/lookup/update', [LookupController::class, 'update'])->middleware(['auth'])->name('LookupUpdate');
-Route::post('/lookup/delete/', [LookupController::class, 'delete'])->middleware(['auth'])->name('LookupDelete');
+// Route::get('/lookup/manage', [LookupController::class, 'manage'])->middleware(['auth'])->name('LookupManage');
+// Route::get('/lookup/create', [LookupController::class, 'create'])->middleware(['auth'])->name('LookupCreate');
+// Route::post('/lookup/store', [LookupController::class, 'store'])->middleware(['auth'])->name('LookupStore');
+// Route::get('/lookup/edit/{id}', [LookupController::class, 'edit'])->middleware(['auth'])->name('LookupEdit');
+// Route::post('/lookup/update', [LookupController::class, 'update'])->middleware(['auth'])->name('LookupUpdate');
+// Route::post('/lookup/delete/', [LookupController::class, 'delete'])->middleware(['auth'])->name('LookupDelete');
+
+//=========================admin SalesOrder settings routes======================================
+Route::get('/sales-order/manage', [SalesOrderController::class, 'manage'])->middleware(['auth'])->name('SalesOrderManage');
+Route::get('/sales-order/create', [SalesOrderController::class, 'create'])->middleware(['auth'])->name('SalesOrderCreate');
+Route::post('/sales-order/store', [SalesOrderController::class, 'store'])->middleware(['auth'])->name('SalesOrderStore');
+Route::get('/sales-order/edit/{id}', [SalesOrderController::class, 'edit'])->middleware(['auth'])->name('SalesOrderEdit');
+Route::post('/sales-order/update', [SalesOrderController::class, 'update'])->middleware(['auth'])->name('SalesOrderUpdate');
+Route::post('/sales-order/delete/', [SalesOrderController::class, 'delete'])->middleware(['auth'])->name('SalesOrderDelete');
+
+
 
 require __DIR__.'/auth.php';
