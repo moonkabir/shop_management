@@ -6,6 +6,8 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('/') }}admin/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="{{ asset('/') }}admin/assets/vendors/base/vendor.bundle.base.css">
+    <link rel="stylesheet" href="{{ asset('/') }}admin/assets/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}admin/assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('/') }}admin/assets/css/style.css">
     <link rel="stylesheet" href="{{ asset('/') }}admin/css/admin-style.css">
     <link rel="shortcut icon" href="{{ asset('/') }}admin/assets/images/favicon.png" />
@@ -204,8 +206,8 @@
                                         </a>
                                         <div class="submenu2">
                                             <ul>
-                                                <li class="nav-item"><a class="nav-link" href="{{ route('ProductCreate') }}">Create SO</a></li>
-                                                <li class="nav-item"><a class="nav-link" href="{{ route('ProductManage') }}">Manage SO</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('SalesOrderCreate') }}">Create SO</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('SalesOrderManage') }}">Manage SO</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -324,6 +326,7 @@
         </div>
     </div>
     <script src="{{asset('/')}}admin/assets/vendors/base/vendor.bundle.base.js"></script>
+    <script src="{{asset('/')}}admin/assets/vendors/select2/select2.min.js"></script>
     <script src="{{asset('/')}}admin/assets/js/template.js"></script>
     <script src="{{asset('/')}}admin/assets/vendors/chart.js/Chart.min.js"></script>
     <script src="{{asset('/')}}admin/assets/vendors/progressbar.js/progressbar.min.js"></script>
@@ -335,6 +338,14 @@
     @yield('extraScripts')
     <script>
         var _token = $("#token").val();
+
+        (function($) {
+            'use strict';
+
+            if ($(".select2_dropdown").length) {
+                $(".select2_dropdown").select2();
+            }            
+        })(jQuery);
     </script>
 </body>
 </html>
