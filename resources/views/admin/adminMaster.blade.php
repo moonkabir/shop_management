@@ -41,7 +41,7 @@
                             </li> --}}
                             <li class="nav-item dropdown d-lg-flex d-none">
                                 <a class="btn btn-inverse-primary btn-sm" href="{{ route('ShopSettings') }}">
-                                    Settings
+                                    Shop Settings
                                 </a>
                             </li>
                         </ul>
@@ -105,16 +105,72 @@
                             </a>
                             <div class="submenu">
                                 <ul>
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('CategoryCreate') }}">Add Category</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('CategoryManage') }}">Manage Category</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('SubCategoryCreate') }}">Add SubCategory</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('SubCategoryManage') }}">Manage SubCategory</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('BrandCreate') }}">Add Brand</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('BrandManage') }}">Manage Brand</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('SupplierCreate') }}">Add Supplier</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('SupplierManage') }}">Manage Supplier</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('CustomerCreate') }}">Add Customer</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('CustomerManage') }}">Manage Customer</a></li>
+
+                                    <li class="nav-item nav-item2">
+                                        <a class="nav-link">
+                                            <i class="mdi mdi-cube-outline menu-icon"></i>
+                                            <span class="menu-title">Category</span>
+                                            <i class="menu-arrow"></i>
+                                        </a>
+                                        <div class="submenu2">
+                                            <ul>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('CategoryCreate') }}">Add Category</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('CategoryManage') }}">Manage Category</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item nav-item2">
+                                        <a class="nav-link">
+                                            <i class="mdi mdi-cube-outline menu-icon"></i>
+                                            <span class="menu-title">SubCategory</span>
+                                            <i class="menu-arrow"></i>
+                                        </a>
+                                        <div class="submenu2">
+                                            <ul>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('SubCategoryCreate') }}">Add SubCategory</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('SubCategoryManage') }}">Manage SubCategory</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item nav-item2">
+                                        <a class="nav-link">
+                                            <i class="mdi mdi-cube-outline menu-icon"></i>
+                                            <span class="menu-title">Brand</span>
+                                            <i class="menu-arrow"></i>
+                                        </a>
+                                        <div class="submenu2">
+                                            <ul>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('BrandCreate') }}">Add Brand</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('BrandManage') }}">Manage Brand</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item nav-item2">
+                                        <a class="nav-link">
+                                            <i class="mdi mdi-cube-outline menu-icon"></i>
+                                            <span class="menu-title">Supplier</span>
+                                            <i class="menu-arrow"></i>
+                                        </a>
+                                        <div class="submenu2">
+                                            <ul>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('SupplierCreate') }}">Add Supplier</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('SupplierManage') }}">Manage Supplier</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item nav-item2">
+                                        <a class="nav-link">
+                                            <i class="mdi mdi-cube-outline menu-icon"></i>
+                                            <span class="menu-title">Customer</span>
+                                            <i class="menu-arrow"></i>
+                                        </a>
+                                        <div class="submenu2">
+                                            <ul>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('CustomerCreate') }}">Add Customer</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('CustomerManage') }}">Manage Customer</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -131,6 +187,58 @@
                                 </ul>
                             </div>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link">
+                                <i class="mdi mdi-cube-outline menu-icon"></i>
+                                <span class="menu-title">CRM</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="submenu">
+                                <ul>
+                                    <li class="nav-item nav-item2">
+                                        <a class="nav-link">
+                                            <i class="mdi mdi-cube-outline menu-icon"></i>
+                                            <span class="menu-title">Sales Order</span>
+                                            <i class="menu-arrow"></i>
+                                        </a>
+                                        <div class="submenu2">
+                                            <ul>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('ProductCreate') }}">Create SO</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('ProductManage') }}">Manage SO</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item nav-item2">
+                                        <a class="nav-link">
+                                            <i class="mdi mdi-cube-outline menu-icon"></i>
+                                            <span class="menu-title">Sales Delivery</span>
+                                            <i class="menu-arrow"></i>
+                                        </a>
+                                        <div class="submenu2">
+                                            <ul>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('ProductCreate') }}">Create Challan</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('ProductManage') }}">Manage Challan</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item nav-item2">
+                                        <a class="nav-link">
+                                            <i class="mdi mdi-cube-outline menu-icon"></i>
+                                            <span class="menu-title">Sales Invoice</span>
+                                            <i class="menu-arrow"></i>
+                                        </a>
+                                        <div class="submenu2">
+                                            <ul>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('ProductCreate') }}">Create Invoice</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('ProductManage') }}">Manage Invoice</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
 
                         {{-- <li class="nav-item">
                             <a href="#" class="nav-link">
