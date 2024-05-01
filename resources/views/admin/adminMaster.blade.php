@@ -41,7 +41,7 @@
                             </li> --}}
                             <li class="nav-item dropdown d-lg-flex d-none">
                                 <a class="btn btn-inverse-primary btn-sm" href="{{ route('ShopSettings') }}">
-                                    Settings
+                                    Shop Settings
                                 </a>
                             </li>
                         </ul>
